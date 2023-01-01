@@ -43,20 +43,19 @@ describe('Staking', () => {
       const ownerEtherBalanceOld = await owner.getBalance();
 
       const buyTxn1 = await crowdSale.connect(signer2).buyTokens(signer2.address, {value: ethers.utils.parseEther('10')});
-      await buyTxn1.wait()
+      await buyTxn1.wait();
       const buyTxn2 = await crowdSale.connect(signer3).buyTokens(signer3.address, {value: ethers.utils.parseEther('20')});
-      await buyTxn2.wait()
+      await buyTxn2.wait();
 
       totalSupply = await pinCoin.totalSupply();
       signer2Balance = await pinCoin.connect(owner).balanceOf(signer2.address);
       signer3Balance = await pinCoin.connect(owner).balanceOf(signer3.address);
       const ownerEtherBalanceNew = await owner.getBalance();
 
-      expect(totalSupply).to.be.equal(ethers.utils.parseEther('10000'))
-      expect(signer2Balance).to.be.equal(ethers.utils.parseEther('20'))
-      expect(signer3Balance).to.be.equal(ethers.utils.parseEther('40'))
+      expect(totalSupply).to.be.equal(ethers.utils.parseEther('10000'));
+      expect(signer2Balance).to.be.equal(ethers.utils.parseEther('20'));
+      expect(signer3Balance).to.be.equal(ethers.utils.parseEther('40'));
       expect(ownerEtherBalanceNew).to.be.above(ownerEtherBalanceOld);
-
     })
 })
 
