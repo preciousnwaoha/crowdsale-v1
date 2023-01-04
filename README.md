@@ -1,9 +1,5 @@
 # Crowdsale
 
-Tags: App, Web3
-
-# Crowdsale
-
 ### Token ICO Web App
 
 ### Table of Contents
